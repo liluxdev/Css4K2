@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="k2" method="upgrade">
+	<name>K2 Plugin - One css per K2 template</name>
+	<author>Olivier Nolbert</author>
+	<creationDate>May 19th, 2011</creationDate>
+	<copyright>Copyright (c) 2009 - 2011 Jiliko.net</copyright>
+	<authorEmail>o.nolbert@jiliko.net</authorEmail>
+	<authorUrl>www.jiliko.net</authorUrl>
+	<version>1.2.7</version>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<description>This K2 plugin enables 1 css file for 1 k2 template. If you've created a k2 template called 'mytpl' and affected it to a k2 category, the plugin will automatically add the css file 'templates/YOURJOOMLATEMPLATE/html/com_k2/templates/mytpl/mytpl_style.css' to the document stylesheet list when the k2 category or an item of this category will be displayed.</description>
+	<languages>
+		<language tag="en-GB">en-GB.plg_k2_onecssperk2template.ini</language>
+		<language tag="fr-FR">fr-FR.plg_k2_onecssperk2template.ini</language>
+	</languages>
+	<files>
+		<filename plugin="onecssperk2template">onecssperk2template.php</filename>
+	</files>
+	<params>
+		<param name="keepk2css" type="radio" default="1" label="keep k2 Css" description="Do you want to keep the generic k2 css template loaded in the page ?" >
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="forceOriginalTheme" type="radio" default="0" label="Force original category theme" description="If the category inherits the theme from another category, force the original category theme to be loaded." >
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="forceDefaultTheme" type="radio" default="0" label="Force default Theme" description="Only useful if above option is activated. Force the original category theme to be loaded even if it's the default k2 theme." >
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="multiCss" type="radio" default="0" label="Allow multi Css" description="When displaying items from different categories, all category template css are loaded (Shoud be used with caution)." >
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+	</params>
+</install>
