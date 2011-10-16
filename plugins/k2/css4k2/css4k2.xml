@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.7" type="plugin" group="k2" method="upgrade">
+	<name>plg_k2_css4k2</name>
+	<author>Jiliko.net</author>
+	<creationDate>October 16th, 2011</creationDate>
+	<copyright>Copyright (c) 2009 - 2011 Jiliko.net</copyright>
+	<authorEmail>o.nolbert@jiliko.net</authorEmail>
+	<authorUrl>www.jiliko.net</authorUrl>
+	<version>1.7.0</version>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<description>PLG_K2_CSSK2_XML_DESCRIPTION</description>
+	<languages>
+		<language tag="en-GB">en-GB.plg_k2_css4k2.ini</language>
+		<language tag="en-GB">en-GB.plg_k2_css4k2.sys.ini</language>
+		<language tag="fr-FR">fr-FR.plg_k2_css4k2.ini</language>
+		<language tag="fr-FR">fr-FR.plg_k2_css4k2.sys.ini</language>
+	</languages>
+	<files>
+		<filename plugin="css4k2">css4k2.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="keepk2css" type="radio" default="1" label="PLG_K2_CSS4K2_KEEP_K2_CSS_LABEL" description="PLG_K2_CSS4K2_KEEP_K2_CSS_DESC" >
+					<option value="0">JNo</option>
+					<option value="1">JYes</option>
+				</field>
+				<field name="forceOriginalTheme" type="radio" default="0" label="PLG_K2_CSS4K2_FORCE_ORIGINAL_THEME_LABEL" description="PLG_K2_CSS4K2_FORCE_ORIGINAL_THEME_DESC" >
+					<option value="0">JNo</option>
+					<option value="1">JYes</option>
+				</field>
+				<field name="forceDefaultTheme" type="radio" default="0" label="PLG_K2_CSS4K2_FORCE_DEFAULT_THEME_LABEL" description="PLG_K2_CSS4K2_FORCE_DEFAULT_THEME_DESC" >
+					<option value="0">JNo</option>
+					<option value="1">JYes</option>
+				</field>
+				<field name="multiCss" type="radio" default="0" label="PLG_K2_CSS4K2_ALLOW_MULTI_CSS_LABEL" description="PLG_K2_CSS4K2_ALLOW_MULTI_CSS_DESC" >
+					<option value="0">JNo</option>
+					<option value="1">JYes</option>
+				</field>
+			</fiedlset>
+		</fields>
+	</config>
+</install>
