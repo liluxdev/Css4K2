@@ -5,7 +5,7 @@ defined('_JEXEC') or die('Restricted access');
 
 JLoader::register('K2Plugin',JPATH_ADMINISTRATOR.DS.'components'.DS.'com_k2'.DS.'lib'.DS.'k2plugin.php');
 
-class plgK2OCss4K2 extends K2Plugin {
+class plgK2Css4K2 extends K2Plugin {
 
 	// Some params
 	var $pluginName = 'Css4K2';
