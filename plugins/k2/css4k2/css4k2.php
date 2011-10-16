@@ -108,7 +108,7 @@ class plgK2OCss4K2 extends K2Plugin {
 			$doc->addStyleSheet(JURI::base().'components/com_k2/templates/'.$theme.'/'.$theme.'_style.css');	  
 	  
 		//If we DON'T want to keep the k2 css loaded
-		if(!$this->params->get('keepk2css',1)) {
+		if(!$this->params->get('keepK2Css',1)) {
 			//We load the head data of the document in an array
 			$tabHead = $doc->getHeadData();
 

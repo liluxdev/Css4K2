@@ -22,7 +22,7 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field name="keepk2css" type="radio" default="1" label="PLG_K2_CSS4K2_KEEP_K2_CSS_LABEL" description="PLG_K2_CSS4K2_KEEP_K2_CSS_DESC" >
+				<field name="keepK2Css" type="radio" default="1" label="PLG_K2_CSS4K2_KEEP_K2_CSS_LABEL" description="PLG_K2_CSS4K2_KEEP_K2_CSS_DESC" >
 					<option value="0">JNo</option>
 					<option value="1">JYes</option>
 				</field>
