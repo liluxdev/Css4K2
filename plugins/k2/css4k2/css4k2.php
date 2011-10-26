@@ -8,7 +8,7 @@ JLoader::register('K2Plugin',JPATH_ADMINISTRATOR.DS.'components'.DS.'com_k2'.DS.
 class plgK2Css4K2 extends K2Plugin {
 
 	// Some params
-	var $pluginName = 'Css4K2';
+	var $pluginName = 'css4k2';
 	var $pluginNameHumanReadable = 'Css4K2';
 
 	public function __construct(& $subject, $config) {
