@@ -91,7 +91,7 @@ class plgK2Css4K2 extends K2Plugin {
 	
 		jimport('joomla.filesystem.file');
 		
-		$theme == '';
+		$theme = '';
 		
 		if (isset($params) && is_object($params))
 			$theme = $params->get('theme','');
