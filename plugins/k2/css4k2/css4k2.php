@@ -86,12 +86,15 @@ class plgK2Css4K2 extends K2Plugin {
 		return '';
 	}
 	
-	function loadCss($params) {
+	function loadCss($params = null) {
 		$app = JFactory::getApplication();
 	
 		jimport('joomla.filesystem.file');
 		
-		$theme = $params->get('theme','');
+		$theme == '';
+		
+		if (isset($params) && is_object($params))
+			$theme = $params->get('theme','');
 		
 		if($theme == '')
 			$theme = 'default';
