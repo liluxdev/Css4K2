@@ -63,13 +63,12 @@ class plgK2OneCssPerK2Template extends K2Plugin {
 		$plugin =& JPluginHelper::GetPlugin('k2', 'onecssperk2template');
 		$pluginParams = new JParameter($plugin->params);
 		
-		// Call loadCss function if we're in the k2 item view
-		$view=JRequest::getCmd('view');
-		
 		if ($pluginParams->get('multiCss',0))
 			$this->loadCss($item->params);
-		else
+		else {
+			$this->checkTheme($params);
 			$this->loadCss($params);
+		}
 		
 		return '';
 	}
@@ -80,9 +79,11 @@ class plgK2OneCssPerK2Template extends K2Plugin {
 		// Call loadCss function if we're in the k2 itemlist view
 		$view=JRequest::getCmd('view');
 		
-		if($view == 'itemlist')
+		if($view == 'itemlist') {
+			$this->checkTheme($params);
 			$this->loadCss($params);
-			
+		}
+		
 		return '';
 	}
 
@@ -92,8 +93,10 @@ class plgK2OneCssPerK2Template extends K2Plugin {
 		// Call loadCss function if we're in the k2 itemlist view
 		$view=JRequest::getCmd('view');
 		
-		if($view == 'itemlist')
+		if($view == 'itemlist') {
+			$this->checkTheme($params);
 			$this->loadCss($params);
+		}
 			
 		return '';
 	}
@@ -111,6 +114,10 @@ class plgK2OneCssPerK2Template extends K2Plugin {
 	
 		jimport('joomla.filesystem.file');
 		
+		//We load the plugin parameters
+		$plugin =& JPluginHelper::GetPlugin('k2', 'onecssperk2template');
+		$pluginParams = new JParameter($plugin->params);
+
 		$theme = $params->get('theme','');
 		
 		if($theme == '')
@@ -126,11 +133,6 @@ class plgK2OneCssPerK2Template extends K2Plugin {
 			$doc->addStyleSheet(JURI::base().'templates/'.$mainframe->getTemplate().'/html/com_k2/templates/'.$theme.'/'.$theme.'_style.css');
 		elseif (JFile::exists(JPATH_SITE.DS.'components'.DS.'com_k2'.DS.'templates'.DS.$theme.DS.$theme.'_style.css'))
 			$doc->addStyleSheet(JURI::base().'components/com_k2/templates/'.$theme.'/'.$theme.'_style.css');
-			
-		//We load the plugin parameters
-		$plugin =& JPluginHelper::GetPlugin('k2', 'onecssperk2template');
-		$pluginParams = new JParameter($plugin->params);
-	  
 	  
 		//If we DON'T want to keep the k2 css loaded
 		if(!$pluginParams->get('keepk2css',1)) {
@@ -140,15 +142,39 @@ class plgK2OneCssPerK2Template extends K2Plugin {
 			//For each stylesheets loaded, we check the key (the path & name of the css file)
 			foreach($tabHead['styleSheets'] as $key => $styleSheet){
 				if( strpos($key, '/k2.css')) {
-				//The entry of the css file is deleted
-				unset($tabHead['styleSheets'][$key]);
-				break;
+					//The entry of the css file is deleted
+					unset($tabHead['styleSheets'][$key]);
+					break;
 				}
 	    	}
 	    
 			//The new head data is loaded in the document
 			$doc->setHeadData($tabHead);
 	  	}
+	}
+
+	function checkTheme(& $params) {
+		//We load the plugin parameters
+		$plugin =& JPluginHelper::GetPlugin('k2', 'onecssperk2template');
+		$pluginParams = new JParameter($plugin->params);
+		
+		$Itemid = JRequest::getInt('Itemid', 0);
+		
+		if(JFile::exists(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_k2templates'.DS.'helpers'.DS.'templates.php') && $Itemid) {
+			
+			require_once(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_k2templates'.DS.'helpers'.DS.'templates.php');
+			
+			$K2Templates = K2HelperTemplates::getTemplates(false);
+			
+			foreach($K2Templates as $K2TemplateName) {
+				if (in_array($Itemid, (array) $pluginParams->get('MenuItemTemplate'.ucfirst($K2TemplateName), array()))) {
+					$params->set('theme', $K2TemplateName);
+					return true;
+					break;
+				}
+			}
+		}
+
 	}
 	
 } // END CLASS
