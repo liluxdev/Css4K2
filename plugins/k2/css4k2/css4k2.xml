@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="1.7" type="plugin" group="k2" method="upgrade">
+<extension version="2.5" type="plugin" group="k2" method="upgrade">
 	<name>plg_k2_css4k2</name>
 	<author>Jiliko.net</author>
-	<creationDate>December 5th, 2011</creationDate>
-	<copyright>Copyright (c) 2009 - 2011 Jiliko.net</copyright>
+	<creationDate>October 6th, 2012</creationDate>
+	<copyright>Copyright (c) 2009 - 2012 Jiliko.net</copyright>
 	<authorEmail>o.nolbert@jiliko.net</authorEmail>
 	<authorUrl>www.jiliko.net</authorUrl>
-	<version>1.7.2</version>
+	<version>1.8.0</version>
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<description>PLG_K2_CSS4K2_XML_DESCRIPTION</description>
 	<languages>
@@ -22,7 +22,9 @@
 	<files>
 		<filename plugin="css4k2">css4k2.php</filename>
 		<filename>index.html</filename>
+		<filename>script.php</filename>
 	</files>
+	<scriptfile>script.php</scriptfile>
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
@@ -45,5 +47,4 @@
 			</fieldset>
 		</fields>
 	</config>
-	<params/>
 </extension>
