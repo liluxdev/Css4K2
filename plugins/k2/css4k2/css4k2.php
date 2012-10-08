@@ -1,4 +1,12 @@
 <?php
+/**
+* @version 			Css4K2 1.8.x
+* @package			Css4K2
+* @url				http://www.jiliko.net
+* @editor			Jiliko - www.jiliko.net
+* @copyright		Copyright (C) 2012 JILIKO. All Rights Reserved.
+* @license 			GNU General Public License version 2 or later; see _LICENSE.php
+**/
 
 // no direct access
 defined('_JEXEC') or die('Restricted access');
