@@ -54,7 +54,7 @@ class plgK2Css4K2 extends K2Plugin {
 		// Call loadCss function if we're in the k2 item view
 		$view = JRequest::getCmd('view');
 		
-		if ($this->params->get('multiCss',0))
+		if ($this->params->get('multiCss',0) || $view == 'item')
 			$this->loadCss($item->params);
 		else
 			$this->loadCss($params);
